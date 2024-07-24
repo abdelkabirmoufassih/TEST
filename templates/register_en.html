@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Information</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style-Information.css') }}"
+    />
+    <link rel="icon" href="logo-azura.svg" />
+    <style>
+      .flash-messages {
+        margin: 20px;
+      }
+      .alert {
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+      }
+      .alert-success {
+        background-color: #d4edda;
+        color: #155724;
+      }
+      .alert-error {
+        background-color: #f8d7da;
+        color: #721c24;
+      }
+      .alert-info {
+        background-color: #d1ecf1;
+        color: #0c5460;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="jumbotron text-center">
+      <img
+        src="{{ url_for('static', filename='logo-azura.svg') }}"
+        alt="Logo"
+        class="float-right"
+        id="logo"
+      />
+      <h1 style="text-align: center">Employee Training</h1>
+    </div>
+
+    <div class="container mt-5">
+      <h4
+        style="
+          margin-bottom: 5%;
+          text-align: center;
+          font-family: -webkit-body;
+          color: snow;
+        "
+      >
+        Please enter your personal information
+      </h4>
+
+      <!-- Flash messages specific to registration -->
+      {% with messages = get_flashed_messages(with_categories=True) %} {% if
+      messages %}
+      <div class="flash-messages">
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+      {% endif %} {% endwith %}
+
+      <form
+        action="{{ url_for('auth.register') }}"
+        method="POST"
+        class="form-container border-form"
+      >
+        <input type="hidden" name="language" value="en" />
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="emp_id">Employee ID:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="emp_id"
+              name="emp_id"
+              required
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="cin">National ID:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="cin"
+              name="cin"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="first_name">First Name:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="first_name"
+              name="first_name"
+              required
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="last_name">Last Name:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="last_name"
+              name="last_name"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="service">Department:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="service"
+              name="service"
+              required
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="site">Site:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="site"
+              name="site"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              required
+            />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary submit-button">
+          Submit
+        </button>
+      </form>
+      <div class="text-center mt-4">
+        <a href="/" class="btn btn-primary btn-lg"
+          >Return to Home Page</a
+        >
+      </div>
+    </div>
+    <div style="height: 50px"></div>
+  </body>
+</html>

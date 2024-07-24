@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block title %}Manage Users{% endblock %} {% block
+content %}
+<h1>Manage Users</h1>
+
+{% if users %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Matricule</th>
+      <th>Nom</th>
+      <th>Service</th>
+      <th>Actions</th>
+      <!-- Add an Actions column -->
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users %}
+    <tr>
+      <td>{{ user.emp_id }}</td>
+      <td>{{ user.first_name }} {{ user.last_name }}</td>
+      <td>{{ user.service }}</td>
+      <td>
+        <a
+          href="{{ url_for('auth.view_user', user_id=user.id) }}"
+          class="btn btn-info btn-sm"
+          >View</a
+        >
+        <a
+          href="{{ url_for('auth.edit_user', user_id=user.id) }}"
+          class="btn btn-warning btn-sm"
+          >Edit</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<div class="alert alert-info" role="alert">No users found.</div>
+{% endif %} {% endblock %}

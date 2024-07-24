@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>تسجيل الدخول</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style-Information.css') }}"
+    />
+    <link rel="icon" href="logo-azura.svg" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+      body {
+        direction: rtl;
+        text-align: right;
+        font-family: Tajawal;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="jumbotron text-center">
+      <img
+        src="{{ url_for('static', filename='logo-azura.svg') }}"
+        alt="شعار"
+        class="float-right"
+        id="logo"
+      />
+      <h1 style="text-align: center">تسجيل الدخول</h1>
+    </div>
+
+    <div class="container mt-5">
+      <h4
+        style="
+          margin-bottom: 5%;
+          text-align: center;
+          font-family: -webkit-body;
+          color: snow;
+        "
+      >
+        يرجى إدخال معلومات تسجيل الدخول الخاصة بك
+      </h4>
+
+      <!-- Display Flash Messages -->
+      {% with messages = get_flashed_messages(with_categories=True) %} {% if
+      messages %}
+      <div class="container">
+        {% for category, message in messages %}
+        <div
+          class="alert alert-{{ 'success' if category == 'success' else 'danger' }} alert-dismissible fade show"
+          role="alert"
+        >
+          {{ message }}
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %} {% endwith %}
+
+      <form
+        action="{{ url_for('auth.login') }}"
+        method="POST"
+        class="form-container border-form"
+      >
+        <input type="hidden" name="language" value="ar" />
+        <div class="form-group">
+            <label for="emp_id">رقم الموظف:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="emp_id"
+              name="emp_id"
+              required
+            />
+        </div>
+        <div class="form-group">
+            <label for="password">كلمة السر:</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              required
+            />
+        </div>
+        <button type="submit" class="btn btn-primary submit-button">
+          تسجيل الدخول
+        </button>
+      </form>
+      <div class="text-center mt-4">
+        <a href="/" class="btn btn-primary btn-lg">العودة إلى الصفحة الرئيسية</a>
+        <a href="/register" class="btn btn-primary btn-lg">للتسجيل</a>
+      </div>
+    </div>
+
+    <!-- Include Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <div style="height: 50px"></div>
+  </body>
+</html>

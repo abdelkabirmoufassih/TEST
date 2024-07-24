@@ -1,0 +1,18 @@
+.centered-jumbotron {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0;
+    background: url('T.jpg') no-repeat center center/cover;
+}
+.centered-jumbotron {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0; 
+}
+.jumbotron {
+    margin: 0;
+}

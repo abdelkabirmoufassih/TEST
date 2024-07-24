@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style-Landing.css') }}">
+    <link rel="icon" href="logo-azura.svg">
+</head>
+<body>
+<div class="navbar">
+		<div class="container flex">
+            <img id="i1" src="{{ url_for('static', filename='logo-azura.svg') }}" alt="logo">
+		<nav>
+			<ul>
+				<li>
+					<a href="https://www.azura-group.com/">Page Officiel</a>
+				</li>
+				<li>
+					<a href="https://www.azura-group.com/actualites">Actualités</a>
+				</li>
+				<li>
+					<a href="https://www.azura-group.com/contact">Contact</a>
+				</li>
+		</nav>
+		</div>
+	</div>
+<section class="showcase">
+  <div class="container grid">
+    <div class="showcase-text">
+          <h1>Fromation d'Employée</h1>
+          <p>Bienvenue au questionnaire de formation des employés. Pour continuer, veuillez sélectionner la langue de votre formation.</p>
+            <div class="btn-group" role="group" aria-label="Language selection">
+                <a href="/login/en" class="btn btn-primary">English</a>
+                <a href="/login/fr" class="btn btn-secondary">Francais</a>
+                <a href="/login/ar" class="btn btn-secondary">العربية</a>
+
+ </section>
+ <section class="new-section">
+    <div class="container">
+        <p>Tél : 05283-03000 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Email&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Location</p>
+    </div>
+  </section>
+</body>
+</html>
+    
+

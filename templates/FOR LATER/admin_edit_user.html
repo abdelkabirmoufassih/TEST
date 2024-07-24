@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block title %}Edit User{% endblock %} {% block
+content %}
+<h1>Edit User</h1>
+<form method="POST">
+  <div class="form-group">
+    <label for="first_name">First Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="first_name"
+      name="first_name"
+      value="{{ user.first_name }}"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="last_name">Last Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="last_name"
+      name="last_name"
+      value="{{ user.last_name }}"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="service">Service</label>
+    <input
+      type="text"
+      class="form-control"
+      id="service"
+      name="service"
+      value="{{ user.service }}"
+      required
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Save Changes</button>
+  <a href="{{ url_for('auth.manage_users') }}" class="btn btn-secondary"
+    >Cancel</a
+  >
+</form>
+{% endblock %}

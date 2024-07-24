@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quiz</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style-Quiz.css') }}"
+    />
+    <link rel="icon" href="logo-azura.svg" />
+    <style>
+      .text-center {
+        text-align: center;
+      }
+      .float-right {
+        float: right;
+      }
+      .form-container label {
+        text-align: left;
+      }
+      .form-check-label {
+        margin-left: 20px;
+      }
+      .alert {
+        display: none;
+        text-align: center;
+        font-size: 1.2em;
+      }
+      .question-container {
+        display: none;
+      }
+    </style>
+    <script>
+      function startTimer(duration, display, form) {
+        var timer = duration,
+          minutes,
+          seconds;
+        var countdown = setInterval(function () {
+          minutes = parseInt(timer / 60, 10);
+          seconds = parseInt(timer % 60, 10);
+
+          minutes = minutes < 10 ? "0" + minutes : minutes;
+          seconds = seconds < 10 ? "0" + seconds : seconds;
+
+          display.textContent = minutes + ":" + seconds;
+
+          if (--timer < 0) {
+            clearInterval(countdown);
+            form.submit();
+          }
+        }, 1000);
+      }
+
+      window.onload = function () {
+        var startTimeStr = "{{ start_time }}";
+        if (!startTimeStr) {
+          console.error("Start time is not defined.");
+          return;
+        }
+
+        var startTime = new Date(startTimeStr).getTime();
+        if (isNaN(startTime)) {
+          console.error("Invalid start time:", startTimeStr);
+          return;
+        }
+
+        var currentTime = new Date().getTime();
+        var elapsedTime = Math.floor((currentTime - startTime) / 1000);
+        var quizDuration = 60 * 20; // 20 minutes in seconds
+        var remainingTime = quizDuration - elapsedTime;
+
+        console.log("Start Time (UTC):", new Date(startTime));
+        console.log("Current Time:", new Date(currentTime));
+        console.log("Elapsed Time (seconds):", elapsedTime);
+        console.log("Remaining Time (seconds):", remainingTime);
+
+        if (remainingTime <= 0) {
+          document.querySelector("#quiz-form").submit();
+        } else {
+          var display = document.querySelector("#time");
+          var form = document.querySelector("#quiz-form");
+          startTimer(remainingTime, display, form);
+        }
+
+        // Initialize question navigation
+        showQuestion(0); // Show the first question
+      };
+
+      function showQuestion(index) {
+        var questions = document.querySelectorAll(".question-container");
+        questions.forEach((q, i) => {
+          q.style.display = i === index ? "block" : "none";
+        });
+
+        document.getElementById("prev-button").style.display =
+          index > 0 ? "inline" : "none";
+        document.getElementById("next-button").style.display =
+          index < questions.length - 1 ? "inline" : "none";
+        document.getElementById("submit-button").style.display =
+          index === questions.length - 1 ? "inline" : "none";
+      }
+
+      function validateForm() {
+        var questions = document.querySelectorAll(".question-container");
+        for (var i = 0; i < questions.length; i++) {
+          var checkboxes = questions[i].querySelectorAll(
+            "input[type=checkbox]"
+          );
+          var atLeastOneChecked = false;
+          for (var j = 0; j < checkboxes.length; j++) {
+            if (checkboxes[j].checked) {
+              atLeastOneChecked = true;
+              break;
+            }
+          }
+          if (!atLeastOneChecked) {
+            document.getElementById("error-message").style.display = "block";
+            return false;
+          }
+        }
+        return true;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="jumbotron text-center">
+      <img
+        src="{{ url_for('static', filename='logo-azura.svg') }}"
+        alt="logo-azura"
+        class="float-right"
+        id="logo"
+      />
+      <h1>Employee Training</h1>
+    </div>
+
+    <div class="container mt-5">
+      <h4
+        style="
+          margin-bottom: 5%;
+          text-align: center;
+          font-family: Tajawal;
+          color: snow;
+        "
+      >
+        Please mark the answers
+      </h4>
+      <div id="error-message" class="alert alert-danger">
+        You must choose at least one option for each question.
+      </div>
+      <p>
+        <strong><span id="time">20:00</span>: Remaining time</strong>
+      </p>
+      <form
+        id="quiz-form"
+        action="{{ url_for('auth.submit_quiz', quiz_id=quiz.id) }}"
+        method="post"
+        class="form-container border-form"
+        onsubmit="return validateForm()"
+      >
+        <!-- Add CSRF Token -->
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+
+        <div class="container" id="questions">
+          {% for question in quiz.questions %}
+          <div class="mb-3 question-container">
+            <p><strong>{{ question.title }}</strong></p>
+            {% for option in question.options %}
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                name="question_{{ question.id }}"
+                value="{{ option.id }}"
+              />
+              <label class="form-check-label"> {{ option.text }} </label>
+            </div>
+            {% endfor %}
+          </div>
+          {% endfor %}
+        </div>
+        <div class="text-center">
+          <button
+            type="button"
+            id="prev-button"
+            class="btn btn-secondary"
+            onclick="showQuestion(currentIndex - 1)"
+          >
+            Previous
+          </button>
+          <button
+            type="button"
+            id="next-button"
+            class="btn btn-primary"
+            onclick="showQuestion(currentIndex + 1)"
+          >
+            Next
+          </button>
+          <button type="submit" id="submit-button" class="btn btn-success">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+    <div style="height: 50px"></div>
+    <script>
+      var currentIndex = 0;
+      function showQuestion(index) {
+        var questions = document.querySelectorAll(".question-container");
+        if (index < 0 || index >= questions.length) return;
+        questions.forEach((q, i) => {
+          q.style.display = i === index ? "block" : "none";
+        });
+
+        document.getElementById("prev-button").style.display =
+          index > 0 ? "inline" : "none";
+        document.getElementById("next-button").style.display =
+          index < questions.length - 1 ? "inline" : "none";
+        document.getElementById("submit-button").style.display =
+          index === questions.length - 1 ? "inline" : "none";
+        currentIndex = index;
+      }
+    </script>
+  </body>
+</html>

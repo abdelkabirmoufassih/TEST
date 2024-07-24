@@ -1,0 +1,33 @@
+questions = {
+    "fr":[{
+        "question": "1-Quelles sont les objets et les produits interdits avant d'accèder à la station ?",
+        "options": ["Les objets en verre", "Ustensiles en plastique", " Médicament", "Tomate  et poivrons"],
+        "correct_answers": ["Les objets en verre", "Tomate  et poivrons"],
+    },
+    {
+        "question": "2-Quelles sont les interdictions à l'intérieur de la station ?",
+        "options": ["Les bijoux", "Barbe non protégée", "Les produits alimentaires /allergènes", "Les lunettes solaires ou lentilles brisées ou fissurées"],
+        "correct_answers": ["Les bijoux", "Barbe non protégée", "Les produits alimentaires /allergènes", "Les lunettes solaires ou lentilles brisées ou fissurées"]
+    }],
+"en":[{
+    "question": "1- What are the prohibited objects and products before entering the station?",
+    "options": ["Glass objects", "Plastic utensils", "Medicine", "Tomatoes and peppers"],
+    "correct_answers": ["Glass objects", "Tomatoes and peppers"]
+},
+{
+    "question": "2- What are the prohibitions inside the station?",
+    "options": ["Jewelry", "Unprotected beard", "Food products/allergens", "Broken or cracked sunglasses or lenses"],
+    "correct_answers": ["Jewelry", "Unprotected beard", "Food products/allergens", "Broken or cracked sunglasses or lenses"]
+}
+],
+"ar":[{
+    "question": "1- ما هي الأشياء والمنتجات المحظورة قبل الدخول إلى المحطة ؟",
+    "options": ["الأشياء الزجاجية", "الأدوات البلاستيكية", "الأدوية", "الطماطم والفلفل"],
+    "correct_answers": ["الأشياء الزجاجية", "الطماطم والفلفل"]
+},
+{
+    "question": "2- ما هي المحظورات داخل المحطة ؟",
+    "options": ["المجوهرات", "اللحية غير المحمية", "المنتجات الغذائية / المواد المسببة للحساسية", "النظارات الشمسية المكسورة أو المتشققة"],
+    "correct_answers": ["المجوهرات", "اللحية غير المحمية", "المنتجات الغذائية / المواد المسببة للحساسية", "النظارات الشمسية المكسورة أو المتشققة"]
+},
+]}

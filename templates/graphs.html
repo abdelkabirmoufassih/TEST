@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quiz Results Graphs</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="icon" href="logo-azura.svg" />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="mb-4">Quiz Results Graphs</h1>
+      <div class="mb-5">
+        <h2>Average Succes Percentage</h2>
+        <div>{{ all_graph|safe }}</div>
+      </div>
+      <a href="/" class="btn btn-primary">Back to Quiz</a>
+    </div>
+    <h1 class="mb-4">Employee Results</h1>
+    {% for employee_id, pie_chart in pie_charts.items() %}
+    <div class="mb-4">
+      <h3>Employee ID: {{ employee_id }}</h3>
+      {{ pie_chart|safe }}
+    </div>
+    {% endfor %}
+  </body>
+</html>

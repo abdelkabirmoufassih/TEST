@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Introduction</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        padding-top: 70px; /* Adjust padding to account for the fixed navbar height */
+        margin: 0; /* Remove default margin */
+      }
+      .intro-section {
+        margin-top: 30px;
+      }
+      .video-container {
+        margin-top: 20px;
+      }
+      .navbar {
+        background-color: #04b728; /* Dark color for navbar */
+        color: #fff; /* White text color */
+        font-size: 1.25rem; /* Increase font size */
+        padding: 1rem; /* Increase padding */
+        position: fixed; /* Fix the navbar to the top */
+        top: 0;
+        left: 0;
+        width: 100%; /* Make sure the navbar spans the full width */
+        z-index: 1000; /* Ensure the navbar is above other content */
+      }
+      .navbar-brand {
+        font-size: 1.5rem; /* Increase font size for brand */
+        margin: 0 auto; /* Center brand */
+        text-align: center;
+        display: block; /* Make the brand occupy full width */
+      }
+      .logout-button {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar with Logout Button -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <a class="navbar-brand" href="#">Explanation</a>
+      <div class="logout-button">
+        <a href="/logout" class="btn btn-danger">Logout</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="intro-section text-center">
+            <h1>Welcome to the Quiz!</h1>
+            <p>Watch the video below to understand how the quiz works.</p>
+          </div>
+          <div class="video-container text-center">
+            <video width="100%" height="auto" controls>
+              <source src="path/to/your/video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="text-center mt-4">
+            <a href="/quiz" class="btn btn-primary btn-lg">Start Quiz</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction au Quiz</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        padding-top: 70px; /* Ajuster le padding pour tenir compte de la hauteur fixe de la barre de navigation */
+        margin: 0; /* Supprimer la marge par défaut */
+      }
+      .intro-section {
+        margin-top: 30px;
+      }
+      .video-container {
+        margin-top: 20px;
+      }
+      .navbar {
+        background-color: #04b728; /* Couleur sombre pour la barre de navigation */
+        color: #fff; /* Couleur du texte en blanc */
+        font-size: 1.25rem; /* Augmenter la taille de la police */
+        padding: 1rem; /* Augmenter le padding */
+        position: fixed; /* Fixer la barre de navigation en haut */
+        top: 0;
+        left: 0;
+        width: 100%; /* Assurer que la barre de navigation occupe toute la largeur */
+        z-index: 1000; /* Assurer que la barre de navigation est au-dessus du reste du contenu */
+      }
+      .navbar-brand {
+        font-size: 1.5rem; /* Augmenter la taille de la police pour la marque */
+        margin: 0 auto; /* Centrer la marque */
+        text-align: center;
+        display: block; /* Faire en sorte que la marque occupe toute la largeur */
+      }
+      .logout-button {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Barre de navigation avec bouton de déconnexion -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <a class="navbar-brand" href="#">Explication</a>
+      <div class="logout-button">
+        <a href="/logout" class="btn btn-danger">Déconnexion</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="intro-section text-center">
+            <h1>Bienvenue au Quiz !</h1>
+            <p>Regardez la vidéo ci-dessous pour comprendre comment fonctionne le quiz.</p>
+          </div>
+          <div class="video-container text-center">
+            <video width="100%" height="auto" controls>
+              <source src="path/to/your/video.mp4" type="video/mp4" />
+              Votre navigateur ne prend pas en charge la balise vidéo.
+            </video>
+          </div>
+          <div class="text-center mt-4">
+            <a href="/quiz" class="btn btn-primary btn-lg">Commencer le Quiz</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

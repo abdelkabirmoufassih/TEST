@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+body {
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 50px; 
+    background-image: url('T.jpg'); 
+    background-attachment: fixed;
+    background-size: cover; 
+    background-position: center; 
+}
+h1{
+    color: #343a40;
+}
+.form-check-label {
+    font-size: 1.1em;
+}
+.jumbotron {
+    background-color: #04b728;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.form-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.border-form {
+    border: 2px solid #04b728; 
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+.submit-button {
+    align-self: flex-end;
+    padding: 10px 20px;
+    background-color: #04b728;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px;
+}
+#logo {
+    width: 10%;
+}
+#questions {
+    margin-top: 4%;
+}

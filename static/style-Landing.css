@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+:root {
+  --primary-color: #04b728;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: 'Lato', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  margin: 0; 
+  padding: 0;
+}
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+h1, h2 {
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 10px 0px;
+}
+p {
+  margin: 10px 0px;
+}
+.navbar {
+  background: var(--primary-color);
+  color: #fff;
+  height: 70px;
+}
+.navbar .flex {
+  justify-content: space-between;
+}
+.showcase {
+  height: 400px;
+  background: url('T.jpg') no-repeat center center/cover;
+  color: #fff;
+  position: relative;
+  z-index: 1; 
+}
+.showcase h1{
+  font-size: 40px;
+}
+.showcase p{
+  margin: 20px 0;
+}
+.showcase .grid{
+  overflow: visible;
+  grid-template-columns: 55% 45%;
+  gap: 30px;
+}
+
+.btn{
+  display: inline-block;
+  padding: 10px 30px;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+.btn:hover {
+  transform: scale(0.98);
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0 40px;
+}
+.flex ul {
+  display: flex;
+}
+.navbar a {
+  color: #fff;
+  padding: 10px;
+  margin: 0px 5px;
+}
+.navbar a:hover {
+  border-bottom: 2px #fff solid;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+#i1 {
+  width: 10%;
+}
+.new-section {
+    padding: 40px 0;
+    background: #ffffff;
+    text-align: center;
+    margin-top: 5%;
+}
+.new-section h2 {
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+.new-section p {
+    margin-bottom: 20px;
+}/* Centering the content within the showcase section */
+.showcase {
+    display: flex;
+    justify-content: center; /* Horizontally centers the content */
+    align-items: center;     /* Vertically centers the content */
+    height: 410px;           /* Full viewport height for vertical centering (optional) */
+    text-align: center;      /* Center text within the container */
+    padding: 20px;           /* Optional padding for spacing */
+}
+
+/* Centering the content within the grid container in the showcase section */
+.showcase .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-aligns items horizontally */
+}
+
+/* Optional: style for the buttons */
+.btn-group {
+    margin-top: 20px; /* Adds space above the button group */
+}

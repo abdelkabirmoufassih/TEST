@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">Quiz Results: {{ quiz_title }}</h1>
+        <p><strong>Score:</strong> {{ score }}</p>
+        <p><strong>Status:</strong> {{ status }}</p>
+        <p><strong>Time Taken:</strong> {{ time }}</p>
+        
+        <h3 class="mt-4">Your Answers:</h3>
+        <ul class="list-group">
+            {% for answer in answers %}
+                <li class="list-group-item">
+                    <strong>Question:</strong> {{ answer.question_title  }}<br>
+                    <strong>Selected Option:</strong> {{ answer.option_text }}<br>
+                    <strong>Correct:</strong> {% if answer.is_correct %}Yes{% else %}No{% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="/" class="btn btn-secondary mt-4">Back to Home</a>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.2/js/bootstrap.min.js"></script>
+</body>
+</html>

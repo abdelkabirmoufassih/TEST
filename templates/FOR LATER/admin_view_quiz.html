@@ -1,0 +1,62 @@
+{% extends "base.html" %} {% block title %}View Quiz{% endblock %} {% block
+content %}
+<h1>View Quiz Details</h1>
+
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <th>ID</th>
+      <td>{{ quiz.id }}</td>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <td>{{ quiz.title }}</td>
+    </tr>
+    <tr>
+      <th>Language</th>
+      <td>{{ quiz.language }}</td>
+    </tr>
+    <!-- Add more fields as needed -->
+  </tbody>
+</table>
+
+<h2>Questions</h2>
+{% if questions %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Question ID</th>
+      <th>Question Text</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for question in questions %}
+    <tr>
+      <td>{{ question.id }}</td>
+      <td>{{ question.title }}</td>
+      <td>
+        {% if question.options %}
+        <ul>
+          {% for option in question.options %}
+          <li>
+            {{ option.text }} {% if option.is_correct %}
+            <span class="badge badge-success">Correct</span>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %} No options available. {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>No questions found for this quiz.</p>
+{% endif %}
+
+<a href="{{ url_for('auth.manage_quizzes') }}" class="btn btn-secondary"
+  >Back to List</a
+>
+{% endblock %}

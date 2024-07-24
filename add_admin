@@ -1,0 +1,10 @@
+from werkzeug.security import generate_password_hash
+
+password = 'admin'
+hashed_password = generate_password_hash(password, method='pbkdf2:sha256', salt_length=8)
+print(hashed_password)
+
+
+
+'''INSERT INTO Admins (username, password)
+VALUES ('admin', 'pbkdf2:sha256:600000$jyLUmsbT$255bf0359c2a8b0dadc80e6128f4be161d073d6f9cde2a6d76061d91dac13cbd');'''

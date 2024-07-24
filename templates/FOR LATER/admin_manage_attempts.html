@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %}Manage Attempts{% endblock %} {%
+block content %}
+<h1>Manage Attempts</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>User ID</th>
+      <th>Quiz ID</th>
+      <th>Score</th>
+      <th>Status</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for attempt in attempts %}
+    <tr>
+      <td>{{ attempt.id }}</td>
+      <td>{{ attempt.user_id }}</td>
+      <td>{{ attempt.quiz_id }}</td>
+      <td>{{ attempt.score }}</td>
+      <td>{{ attempt.status }}</td>
+      <td>{{ attempt.time }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

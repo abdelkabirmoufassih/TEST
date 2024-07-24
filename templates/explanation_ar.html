@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مقدمة في الاختبار</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+      body {
+        direction: rtl;
+        text-align: right;
+        font-family: Tajawal;
+        padding-top: 70px; /* ضبط التباعد ليتماشى مع ارتفاع شريط التنقل الثابت */
+        margin: 0; /* إزالة الهوامش الافتراضية */
+      }
+      .intro-section {
+        margin-top: 30px;
+      }
+      .video-container {
+        margin-top: 20px;
+      }
+      .navbar {
+        background-color: #04b728; /* لون داكن لشريط التنقل */
+        color: #fff; /* لون النص أبيض */
+        font-size: 1.25rem; /* زيادة حجم الخط */
+        padding: 1rem; /* زيادة التباعد */
+        position: fixed; /* تثبيت شريط التنقل في الأعلى */
+        top: 0;
+        right: 0;
+        width: 100%; /* التأكد من أن شريط التنقل يمتد على العرض الكامل */
+        z-index: 1000; /* التأكد من أن شريط التنقل فوق باقي المحتوى */
+      }
+      .navbar-brand {
+        font-size: 1.5rem; /* زيادة حجم الخط للعلامة التجارية */
+        margin: 0 auto; /* توسيط العلامة التجارية */
+        text-align: center;
+        display: block; /* جعل العلامة التجارية تملأ العرض الكامل */
+      }
+      .logout-button {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- شريط التنقل مع زر تسجيل الخروج -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <a class="navbar-brand" href="#">الشرح</a>
+      <div class="logout-button">
+        <a href="/logout" class="btn btn-danger">تسجيل الخروج</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="intro-section text-center">
+            <h1>مرحبًا بكم في الاختبار!</h1>
+            <p>شاهد الفيديو أدناه لفهم كيفية عمل الاختبار.</p>
+          </div>
+          <div class="video-container text-center">
+            <video width="100%" height="auto" controls>
+              <source src="path/to/your/video.mp4" type="video/mp4" />
+              متصفحك لا يدعم علامة الفيديو.
+            </video>
+          </div>
+          <div class="text-center mt-4">
+            <a href="/quiz" class="btn btn-primary btn-lg">بدء الاختبار</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
