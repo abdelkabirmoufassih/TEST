@@ -201,7 +201,7 @@ def submit_quiz(quiz_id):
         return redirect(url_for('auth.quiz', quiz_id=quiz_id))  # Adjust URL if needed
 
     # Define the passing score threshold (as a percentage)
-    PASSING_SCORE_PERCENTAGE = 25  # Example: 25% passing score
+    PASSING_SCORE_PERCENTAGE = 75  # Example: 25% passing score
 
     final_score = 0
     question_scores = {}
@@ -309,7 +309,9 @@ def submit_quiz(quiz_id):
 @auth_bp.route('/result', methods=['GET'])
 def show_result():
     status = request.args.get('status', 'unknown')
-    return render_template('finish.html', language=session.get("language", "en"), status=status)
+    language = session.get("language", "fr")
+    return render_template(f'finish_{language}.html', status=status)
+
 
 
 

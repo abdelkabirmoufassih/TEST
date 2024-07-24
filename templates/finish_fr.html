@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style-Finish.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <title>Merci</title>
+    <link rel="icon" href="logo-azura.svg" />
+  </head>
+  <body>
+    <div class="container-fluid centered-jumbotron">
+      <div
+        class="jumbotron text-center w-100"
+        style="background-color: transparent; color: snow"
+      >
+        <h1 class="display-3" style="margin-bottom: 3%">Merci !</h1>
+        {% if status == "Failed" %}
+        <p class="lead">
+          <strong style="color: red; font-size: larger">Malheureusement,</strong>&nbsp;vous avez échoué à la formation
+        </p>
+        {% else %}
+        <p class="lead">
+          <strong style="color: green; font-size: larger">Félicitations,</strong
+          >&nbsp;vous avez réussi la formation
+        </p>
+        {% endif %}
+        <div class="text-center mt-4">
+          <a href="/" class="btn btn-primary btn-lg"
+            >Retour à la page d'accueil</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
