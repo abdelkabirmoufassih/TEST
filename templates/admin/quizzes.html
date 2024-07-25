@@ -2,6 +2,15 @@
 block content %}
 <div class="container mt-4">
   <h1 class="mb-4">All Quizzes</h1>
+
+  <!-- Create Quiz Button -->
+  <a
+    href="{{ url_for('admin.create_quiz') }}"
+    class="btn btn-primary mb-3 rounded-pill"
+  >
+    <i class="bi bi-plus-lg"></i> Create Quiz
+  </a>
+
   <div class="table-responsive">
     <table class="table table-striped">
       <thead>
