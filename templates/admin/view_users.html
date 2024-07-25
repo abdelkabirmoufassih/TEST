@@ -1,0 +1,122 @@
+{% extends "admin/sidebar.html" %} {% block title %}Users{% endblock %} {% block
+content %}
+<div class="container mt-4">
+  <h1 class="mb-4">Users</h1>
+
+  <!-- Users Table -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Employee ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Service</th>
+        <th>Site</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.emp_id }}</td>
+        <td>{{ user.first_name }}</td>
+        <td>{{ user.last_name }}</td>
+        <td>{{ user.service }}</td>
+        <td>{{ user.site }}</td>
+        <td>
+          <a
+            href="#"
+            class="btn btn-info btn-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#userModal{{ user.id }}"
+            ><i class="bi bi-eye"></i
+          ></a>
+        </td>
+      </tr>
+
+      <!-- User Details Modal -->
+      <div
+        class="modal fade"
+        id="userModal{{ user.id }}"
+        tabindex="-1"
+        aria-labelledby="userModalLabel{{ user.id }}"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="userModalLabel{{ user.id }}">
+                User Details - {{ user.first_name }} {{ user.last_name }}
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <h4>General Information</h4>
+              <p><strong>Employee ID:</strong> {{ user.emp_id }}</p>
+              <p><strong>First Name:</strong> {{ user.first_name }}</p>
+              <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+              <p><strong>Service:</strong> {{ user.service }}</p>
+              <p><strong>Site:</strong> {{ user.site }}</p>
+
+              <h4 class="mt-4">Quiz Attempts</h4>
+              <div class="accordion" id="attemptsAccordion{{ user.id }}">
+                {% for attempt in user.attempts %}
+                <div class="accordion-item">
+                  <h2
+                    class="accordion-header"
+                    id="headingAttempt{{ attempt.id }}"
+                  >
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseAttempt{{ attempt.id }}"
+                      aria-expanded="true"
+                      aria-controls="collapseAttempt{{ attempt.id }}"
+                    >
+                      {{ attempt.quiz.title }}
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseAttempt{{ attempt.id }}"
+                    class="accordion-collapse collapse show"
+                    aria-labelledby="headingAttempt{{ attempt.id }}"
+                    data-bs-parent="#attemptsAccordion{{ user.id }}"
+                  >
+                    <div class="accordion-body">
+                      <p><strong>Score:</strong> {{ attempt.score }}</p>
+                      <p><strong>Status:</strong> {{ attempt.status }}</p>
+                      <p>
+                        <strong>Time:</strong> {{
+                        attempt.time.strftime('%Y-%m-%d %H:%M:%S') }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

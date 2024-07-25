@@ -1,0 +1,334 @@
+INSERT INTO Quizzes (title, language, is_active) VALUES ('Prohibited Items and Actions', 'en', 1);
+-- Insert questions
+INSERT INTO Questions (quiz_id, title) VALUES 
+(1, '1- What are the prohibited objects and products before entering the station?'),
+(1, '2- What are the prohibitions inside the station?'),
+(1, '3- What are the characteristics of compliant work attire?'),
+(1, '4- How should items be arranged in the lockers?'),
+(1, '5- What should be done in case of the presence of a foreign object?'),
+(1, '6- What should be done in case of an accident''presence of bodily substances?'),
+(1, '7- What are the hygiene rules to follow when using the restrooms?'),
+(1, '8- When should gloves be changed?'),
+(1, '9- What should I do before entering the station?'),
+(1, '10- What should I do in case of pest detection?'),
+(1, '11- What action should be taken in case of the presence of a foreign person inside the station?'),
+(1, '12- What is the purpose of having different colored coats in the station?'),
+(1, '13- What are the physical risks?'),
+(1, '14- What are the chemical risks?'),
+(1, '15- What are the biological risks?'),
+(1, '16- What is your reaction if someone on your team exhibits unsanitary behavior?'),
+(1, '17- What are the instructions to follow when accompanying a visitor or service provider?');
+-- Insert options for each question
+
+-- For Question 1
+INSERT INTO Options (question_id, text, is_correct) VALUES 
+(1, 'Glass objects', 1),
+(1, 'Plastic utensils', 0),
+(1, 'Medicine', 0),
+(1, 'Tomatoes and peppers', 1);
+
+-- For Question 2
+INSERT INTO Options (question_id, text, is_correct) VALUES 
+(2, 'Jewelry', 1),
+(2, 'Unprotected beard', 1),
+(2, 'Food products/allergens', 1),
+(2, 'Broken or cracked sunglasses or lenses', 1);
+
+-- For Question 3
+INSERT INTO Options (question_id, text, is_correct) VALUES 
+(3, 'Modified blouse/Open-toed shoes', 0),
+(3, 'Blouse covering personal clothing and clean', 1),
+(3, 'Head covering scarf or cap', 1),
+(3, 'Clothing with decorative patterns (stones/strasses)', 0);
+
+-- For Question 4
+INSERT INTO Options (question_id, text, is_correct) VALUES 
+(4, 'Put everything in the same bag', 0),
+(4, 'Separate work clothing and other personal effects', 1),
+(4, 'Put food under the clothing', 0),
+(4, 'Place glass items on top', 0);
+
+-- For Question 5
+INSERT INTO Options (question_id, text, is_correct) VALUES 
+(5, 'Stop the machine and remove the foreign object (harmful)', 1),
+(5, 'Inform the supervisor then stop the machine', 0),
+(5, 'Stop the machine then inform the supervisor', 1),
+(5, 'Throw it in the trash', 0);
+
+-- For Question 6
+INSERT INTO Options (question_id, text, is_correct) VALUES 
+(6, 'In case of epistaxis I should stay in my place', 1),
+(6, 'In case of a bleeding wound, I should stay in my place and wait for first aid', 1),
+(6, 'In case of vomiting, inform the infirmary', 0),
+(6, 'In case of bodily substances, I should stay in my place and follow the supervisor’s instructions', 1);
+
+-- For Question 7
+INSERT INTO Options (question_id, text, is_correct) VALUES 
+(7, 'Remove only the blouse', 0),
+(7, 'Remove all work clothing', 1),
+(7, 'Disinfect hands before entering', 0),
+(7, 'Wash and disinfect hands after use and before putting on work clothing', 1);
+
+-- For Question 8
+INSERT INTO Options (question_id, text, is_correct) VALUES 
+(8, 'After changing tasks, after using sanitary facilities', 1),
+(8, 'After 1 hour of work', 0),
+(8, 'Dirty and torn gloves', 1),
+(8, 'Every time', 0);
+
+-- For Question 9
+INSERT INTO Options (question_id, text, is_correct) VALUES 
+(9, 'Wash face', 0),
+(9, 'Wash, dry, and disinfect hands and disinfect shoe soles', 1),
+(9, 'Close doors after each use', 1),
+(9, 'Not necessary to disinfect hands. Washing is sufficient', 0);
+
+-- For Question 10
+INSERT INTO Options (question_id, text, is_correct) VALUES 
+(10, 'Inform the concerned service', 1),
+(10, 'Eliminate the pest then inform the nearest supervisor', 1),
+(10, 'Stop the machine immediately and inform the line supervisor', 1),
+(10, 'Leave insects and remove animals', 0);
+
+-- For Question 11
+INSERT INTO Options (question_id, text, is_correct) VALUES 
+(11, 'Warn the foreign person', 0),
+(11, 'Inform the nearest supervisor', 1),
+(11, 'Inform the security officer', 1),
+(11, 'I am not concerned with this action', 0);
+
+-- For Question 12
+INSERT INTO Options (question_id, text, is_correct) VALUES 
+(12, 'Identification of people by department', 1),
+(12, 'Rapid detection of foreign persons', 1),
+(12, 'Protect people and the product', 1),
+(12, 'No objective', 0);
+
+-- For Question 13
+INSERT INTO Options (question_id, text, is_correct) VALUES 
+(13, 'Paint debris', 1),
+(13, 'Jewelry', 1),
+(13, 'Grease', 0),
+(13, 'Pest traces', 0);
+
+-- For Question 14
+INSERT INTO Options (question_id, text, is_correct) VALUES 
+(14, 'Paint', 1),
+(14, 'Plastic pieces', 0),
+(14, 'Cleaning product', 1),
+(14, 'Machine degreasing products', 1);
+
+-- For Question 15
+INSERT INTO Options (question_id, text, is_correct) VALUES 
+(15, 'Body substance', 1),
+(15, 'Rot on product', 1),
+(15, 'Contagious diseases', 1),
+(15, 'Jewelry', 0);
+
+-- For Question 16
+INSERT INTO Options (question_id, text, is_correct) VALUES 
+(16, 'Immediate awareness', 1),
+(16, 'Inform the concerned service for a training request', 1),
+(16, 'No action', 0),
+(16, 'This is not my area', 0);
+
+-- For Question 17
+INSERT INTO Options (question_id, text, is_correct) VALUES 
+(17, 'Explain, and sign the visitor form', 1),
+(17, 'Wear jewelry and personal items', 0),
+(17, 'Wear a visitor-specific outfit', 1),
+(17, 'Respect visitor hygiene rules', 1);
+
+
+
+-- English to French
+INSERT INTO QuestionTrans (question_id, language, title) VALUES 
+(1, 'fr', '1- Quelles sont les objets et les produits interdits avant d''accèder à la station ?'),
+(2, 'fr', '2- Quelles sont les interdictions à l''intérieur de la station ?'),
+(3, 'fr', '3- Quelles sont les caractéristiques d''une tenue de travail conforme ?'),
+(4, 'fr', '4- Comment doit être l''arrangement des affaires dans les casiers ?'),
+(5, 'fr', '5- Que doit on faire en cas de présence d''un corps étranger ?'),
+(6, 'fr', '6- Que doit faire en cas d''accident/présence de substance corporelles ?'),
+(7, 'fr', '7- Quel sont les règles d''hygiène a respecter lors d''utilisation des sanitaires ?'),
+(8, 'fr', '8- Quand dois-je changer les gants ?'),
+(9, 'fr', '9- Que dois-je faire avant d''entrer à la station ?'),
+(10, 'fr', '10- Que dois-je faire au cas de détection des nuisibles ?'),
+(11, 'fr', '11- Quel-est l''action à faire en cas de présence d''une personne étrangère à l''intérieur de station ?'),
+(12, 'fr', '12- Quel-est l''objectif de la présence des différentes couleurs des blouses à la station ?'),
+(13, 'fr', '13- Quel sont les risques physique ?'),
+(14, 'fr', '14- Quel sont les risques chimiques ?'),
+(15, 'fr', '15- Quel sont les risques biologiques ?'),
+(16, 'fr', '16- Quelles est votre réaction si quelqu''un de votre équipe a fait un comportement non sanitaire ?'),
+(17, 'fr', '17- Quel sont les instructions à suivre en cas d''accompagnement d''un visiteur ou prestataire ?');
+
+-- English to Arabic
+INSERT INTO QuestionTrans (question_id, language, title) VALUES 
+(1, 'ar', '1- ما هي الأشياء والمنتجات المحظورة قبل الدخول إلى المحطة ؟'),
+(2, 'ar', '2- ما هي المحظورات داخل المحطة ؟'),
+(3, 'ar', '3- ما هي خصائص الزي المناسب للعمل ؟'),
+(4, 'ar', '4- كيف يجب ترتيب الأغراض في الخزائن ؟'),
+(5, 'ar', '5- ماذا يجب أن يتم في حال وجود جسم غريب ؟'),
+(6, 'ar', '6- ماذا يجب أن يتم في حالة الحادث وجود مواد جسدية ؟'),
+(7, 'ar', '7- ما هي قواعد النظافة التي يجب اتباعها عند استخدام الحمامات ؟'),
+(8, 'ar', '8- متى يجب تغيير القفازات ؟'),
+(9, 'ar', '9- ماذا يجب أن أفعل قبل الدخول إلى المحطة ؟'),
+(10, 'ar', '10- ماذا يجب أن أفعل في حالة اكتشاف آفات ؟'),
+(11, 'ar', '11- ما هو الإجراء الذي يجب اتخاذه في حالة وجود شخص غريب داخل المحطة ؟'),
+(12, 'ar', '12- ما هو الهدف من وجود ألوان مختلفة للمعاطف في المحطة ؟'),
+(13, 'ar', '13- ما هي المخاطر الفيزيائية ؟'),
+(14, 'ar', '14- ما هي المخاطر الكيميائية ؟'),
+(15, 'ar', '15- ما هي المخاطر البيولوجية ؟'),
+(16, 'ar', '16- ما هو رد فعلك إذا قام شخص من فريقك بسلوك غير صحي ؟'),
+(17, 'ar', '17- ما هي التعليمات التي يجب اتباعها عند مرافقة زائر أو مزود خدمة ؟');
+
+
+
+
+-- English to French
+INSERT INTO OptionTrans (option_id, language, text) VALUES 
+(1, 'fr', 'Les objets en verre'),
+(2, 'fr', 'Ustensiles en plastique'),
+(3, 'fr', 'Médicament'),
+(4, 'fr', 'Tomate et poivrons'),
+(5, 'fr', 'Les bijoux'),
+(6, 'fr', 'Barbe non protégée'),
+(7, 'fr', 'Les produits alimentaires/allergènes'),
+(8, 'fr', 'Les lunettes solaires ou lentilles brisées ou fissurées'),
+(9, 'fr', 'Blouse modifiée/Chaussures ouvertes'),
+(10, 'fr', 'Blouse couverant les vêtements personnels et propre'),
+(11, 'fr', 'Couverture des cheveux foulard ou casquette'),
+(12, 'fr', 'Des vêtements avec des motifs de décoration(pierre/istrasses)'),
+(13, 'fr', 'Mettre tout dans un même sac'),
+(14, 'fr', 'Séparer entre la tenue de travail et autre effet personnel'),
+(15, 'fr', 'Mettre les aliments au dessous des vêtements'),
+(16, 'fr', 'Mettre des produits en verre au dessus'),
+(17, 'fr', 'Arrêter la machine et éliminer le corps étranger (nuisible)'),
+(18, 'fr', 'Informer le responsable puis arrêter la machine'),
+(19, 'fr', 'Arrêter la machine puis informer le responsable'),
+(20, 'fr', 'Le jeter vers la poubelle'),
+(21, 'fr', 'En cas de Epistaxis je doit rester à ma place'),
+(22, 'fr', 'En cas d''une blessure sanglante je dois rester à ma place et j''attend les premiers secours'),
+(23, 'fr', 'En cas de vomissement aviser l''infirmerie'),
+(24, 'fr', 'En cas de présence des substances corporelles je dois rester a ma place et suivre les consignes de responsable'),
+(25, 'fr', 'Enlever la blouse seulement'),
+(26, 'fr', 'Enlever toute la tenue de travail'),
+(27, 'fr', 'Désinfecter les mains avant l''enter'),
+(28, 'fr', 'Lavager et désinfection des mains après l''utilisation et avant de porter la tenue du travail'),
+(29, 'fr', 'Après le changement de chantier, Après l''utilisation sanitaire'),
+(30, 'fr', 'Après 1 heure de travail'),
+(31, 'fr', 'Gants sale et déchirées'),
+(32, 'fr', 'Chaque fois'),
+(33, 'fr', 'Laver son visage'),
+(34, 'fr', 'Laver, sécher et désinfecter les mains et désinfecter les semelles des chaussures'),
+(35, 'fr', 'Fermer les portes après chaque utilisation'),
+(36, 'fr', 'pas nécessaire de désinfecter les mains. Le lavage est suffisant'),
+(37, 'fr', 'Informer le service concerné'),
+(38, 'fr', 'Eliminer le nuisible puis informer le responsable le plus proche'),
+(39, 'fr', 'Arrêt de la machine immédiatement et informer le responsable de la ligne'),
+(40, 'fr', 'Laisser les insectes et éliminer les animaux'),
+(41, 'fr', 'Avertir la personne étranger'),
+(42, 'fr', 'Informer le responsable le plus proche'),
+(43, 'fr', 'Informer l''agent de sécurité'),
+(44, 'fr', 'Je ne suis pas concerné pour faire cette action'),
+(45, 'fr', 'L''identification des personnes par service'),
+(46, 'fr', 'Détection rapidement des personnes étrangères'),
+(47, 'fr', 'Protéger les personnes et le produit'),
+(48, 'fr', 'Pas d''objectif'),
+(49, 'fr', 'Débris de peinture'),
+(50, 'fr', 'Les bijoux'),
+(51, 'fr', 'La graisse'),
+(52, 'fr', 'Traces des nuisibles'),
+(53, 'fr', 'La peinture'),
+(54, 'fr', 'Morceaux de plastique'),
+(55, 'fr', 'Produit de nettoyage'),
+(56, 'fr', 'Produits dégraissants des machines'),
+(57, 'fr', 'Substance corporelle'),
+(58, 'fr', 'Pourriture sur produit'),
+(59, 'fr', 'Les maladies contagieuses'),
+(60, 'fr', 'les bijoux'),
+(61, 'fr', 'Sensibilisation immédiatement'),
+(62, 'fr', 'Aviser le service concerné pour demande d''une formation'),
+(63, 'fr', 'Pas d''action'),
+(64, 'fr', 'Ce n''est pas mon périmètre'),
+(65, 'fr', 'Expliquer, et signer le formulaire visiteurs'),
+(66, 'fr', 'Porter les bijoux et des objets personnels'),
+(67, 'fr', 'Porter une tenue dédiée aux visiteurs'),
+(68, 'fr', 'Respecter les règles sanitaires aux visiteurs');
+
+-- English to Arabic
+-- English to Arabic
+INSERT INTO OptionTrans (option_id, language, text) VALUES 
+(1, 'ar', 'الأشياء الزجاجية'),
+(2, 'ar', 'الأدوات البلاستيكية'),
+(3, 'ar', 'الأدوية'),
+(4, 'ar', 'الطماطم والفلفل'),
+(5, 'ar', 'المجوهرات'),
+(6, 'ar', 'اللحية غير المحمية'),
+(7, 'ar', 'المنتجات الغذائية / المواد المسببة للحساسية'),
+(8, 'ar', 'النظارات الشمسية أو العدسات المكسورة أو المتشققة'),
+(9, 'ar', 'سترة معدلة / أحذية مفتوحة'),
+(10, 'ar', 'سترة تغطي الملابس الشخصية ونظيفة'),
+(11, 'ar', 'تغطية الشعر برباط رأس أو قبعة'),
+(12, 'ar', 'ملابس مزينة بزخارف (حجارة/خرز)'),
+(13, 'ar', 'وضع كل شيء في نفس الكيس'),
+(14, 'ar', 'فصل بين الملابس المهنية والأشياء الشخصية الأخرى'),
+(15, 'ar', 'وضع الطعام تحت الملابس'),
+(16, 'ar', 'وضع الأشياء الزجاجية في الأعلى'),
+(17, 'ar', 'إيقاف الآلة وإزالة الجسم الغريب (الضار)'),
+(18, 'ar', 'إبلاغ المسؤول ثم إيقاف الآلة'),
+(19, 'ar', 'إيقاف الآلة ثم إبلاغ المسؤول'),
+(20, 'ar', 'التخلص منها في سلة المهملات'),
+(21, 'ar', 'في حالة نزيف الأنف يجب أن أبقى في مكاني'),
+(22, 'ar', 'في حالة إصابة دموية يجب أن أبقى في مكاني وانتظر الإسعافات الأولية'),
+(23, 'ar', 'في حالة القيء إبلاغ العيادة'),
+(24, 'ar', 'في حالة وجود مواد جسمانية يجب أن أبقى في مكاني وأتبع تعليمات المسؤول'),
+(25, 'ar', 'إزالة السترة فقط'),
+(26, 'ar', 'إزالة كل ملابس العمل'),
+(27, 'ar', 'تطهير اليدين قبل الدخول'),
+(28, 'ar', 'غسل اليدين وتعقيمها بعد الاستخدام وقبل ارتداء ملابس العمل'),
+(29, 'ar', 'بعد تغيير المكان، بعد الاستخدام الصحي'),
+(30, 'ar', 'بعد ساعة من العمل'),
+(31, 'ar', 'قفازات متسخة وممزقة'),
+(32, 'ar', 'كل مرة'),
+(33, 'ar', 'غسل الوجه'),
+(34, 'ar', 'غسل اليدين وتجفيفها وتعقيمها وتعقيم نعال الأحذية'),
+(35, 'ar', 'إغلاق الأبواب بعد كل استخدام'),
+(36, 'ar', 'لا حاجة لتعقيم اليدين، غسلها كافٍ'),
+(37, 'ar', 'إبلاغ الخدمة المعنية'),
+(38, 'ar', 'إزالة الآفة ثم إبلاغ أقرب مسؤول'),
+(39, 'ar', 'إيقاف الآلة فوراً وإبلاغ مسؤول الخط'),
+(40, 'ar', 'ترك الحشرات والتخلص من الحيوانات'),
+(41, 'ar', 'تنبيه الشخص الغريب'),
+(42, 'ar', 'إبلاغ أقرب مسؤول'),
+(43, 'ar', 'إبلاغ الأمن'),
+(44, 'ar', 'لست معنيًا بتنفيذ هذا الإجراء'),
+(45, 'ar', 'تحديد الأشخاص حسب الخدمة'),
+(46, 'ar', 'الكشف السريع عن الأشخاص الغير معروفين'),
+(47, 'ar', 'حماية الأشخاص والمنتج'),
+(48, 'ar', 'لا يوجد هدف'),
+(49, 'ar', 'بقايا الطلاء'),
+(50, 'ar', 'المجوهرات'),
+(51, 'ar', 'الدهون'),
+(52, 'ar', 'آثار الآفات'),
+(53, 'ar', 'الطلاء'),
+(54, 'ar', 'قطع البلاستيك'),
+(55, 'ar', 'منتجات التنظيف'),
+(56, 'ar', 'منتجات إزالة الدهون من الآلات'),
+(57, 'ar', 'المواد الجسمانية'),
+(58, 'ar', 'التعفن على المنتج'),
+(59, 'ar', 'الأمراض المعدية'),
+(60, 'ar', 'المجوهرات'),
+(61, 'ar', 'التنبيه الفوري'),
+(62, 'ar', 'إبلاغ الخدمة المعنية لطلب تدريب'),
+(63, 'ar', 'لا يوجد إجراء'),
+(64, 'ar', 'هذا ليس ضمن نطاق عملي'),
+(65, 'ar', 'توضيح وتوقيع استمارة الزوار'),
+(66, 'ar', 'ارتداء المجوهرات والأشياء الشخصية'),
+(67, 'ar', 'ارتداء زي مخصص للزوار'),
+(68, 'ar', 'احترام القواعد الصحية للزوار');
+
+
+
+
+
+

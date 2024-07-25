@@ -1,0 +1,123 @@
+{% extends "admin/sidebar.html" %} {% block title %}Attempts{% endblock %} {%
+block content %}
+<div class="container mt-4">
+  <h1 class="mb-4">Quiz Attempts</h1>
+
+  <!-- Attempts Table -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>User ID</th>
+        <th>Quiz Title</th>
+        <th>Score</th>
+        <th>Status</th>
+        <th>Time</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for attempt, user, quiz in attempts %}
+      <tr>
+        <td>{{ attempt.id }}</td>
+        <td>{{ user.first_name }} {{ user.last_name }}</td>
+        <td>{{ quiz.title }}</td>
+        <td>{{ attempt.score }}</td>
+        <td>{{ attempt.status }}</td>
+        <td>{{ attempt.time.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+        <td>
+          <a
+            href="#"
+            class="btn btn-info btn-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#attemptModal{{ attempt.id }}"
+            >View Details</a
+          >
+        </td>
+      </tr>
+
+      <!-- Attempt Details Modal -->
+      <div
+        class="modal fade"
+        id="attemptModal{{ attempt.id }}"
+        tabindex="-1"
+        aria-labelledby="attemptModalLabel{{ attempt.id }}"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="attemptModalLabel{{ attempt.id }}">
+                Attempt Details - {{ user.first_name }} {{ user.last_name }}
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <h4>Attempt Information</h4>
+              <p><strong>Quiz Title:</strong> {{ quiz.title }}</p>
+              <p><strong>Score:</strong> {{ attempt.score }}</p>
+              <p><strong>Status:</strong> {{ attempt.status }}</p>
+              <p>
+                <strong>Time:</strong> {{ attempt.time.strftime('%Y-%m-%d
+                %H:%M:%S') }}
+              </p>
+
+              <h4 class="mt-4">Answers</h4>
+              <div class="accordion" id="answersAccordion{{ attempt.id }}">
+                {% for answer in attempt.answers %}
+                <div class="accordion-item">
+                  <h2
+                    class="accordion-header"
+                    id="headingAnswer{{ answer.id }}"
+                  >
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseAnswer{{ answer.id }}"
+                      aria-expanded="true"
+                      aria-controls="collapseAnswer{{ answer.id }}"
+                    >
+                      Question ID: {{ answer.question_id }}
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseAnswer{{ answer.id }}"
+                    class="accordion-collapse collapse show"
+                    aria-labelledby="headingAnswer{{ answer.id }}"
+                    data-bs-parent="#answersAccordion{{ attempt.id }}"
+                  >
+                    <div class="accordion-body">
+                      <p><strong>Option ID:</strong> {{ answer.option_id }}</p>
+                      <p>
+                        <strong>Is Correct:</strong> {{ 'Yes' if
+                        answer.is_correct else 'No' }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

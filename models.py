@@ -82,6 +82,7 @@ class Attempt(db.Model):
 
     user = db.relationship('User', backref='attempts')
     quiz = db.relationship('Quiz', backref='attempts')
+    answers = db.relationship("Answer", backref="attempts")
 
 class Answer(db.Model):
     __tablename__ = 'Answers'
