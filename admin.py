@@ -24,7 +24,7 @@ def admin_login():
         admin = Admin.query.filter_by(username=username).first()
         if admin and check_password_hash(admin.password, password):
             login_user(admin)  # Using Flask-Login's login_user function
-            return redirect(url_for('admin.admin_dashboard'))
+            return redirect(url_for('admin.dashboard'))
         flash('Invalid username or password')
     return render_template('admin/admin_login.html')
 
@@ -200,7 +200,7 @@ def view_attempts():
     return render_template('admin/view_attempts.html', attempts=attempts)
 
 @admin_bp.route('/dashboard')
-def metrics():
+def dashboard():
     # Fetch data from the database
     total_users = User.query.count()
     total_quizzes = Quiz.query.count()

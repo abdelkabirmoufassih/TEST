@@ -87,10 +87,18 @@ def logout():
     return redirect(url_for('auth.login'))
 
 @auth_bp.route('/explanation')
+@user_login_required
 def explanation():
+    # Check if the user has already attempted this quiz
+    active_quiz = Quiz.query.filter_by(is_active=True).first()
+    attempt = Attempt.query.filter_by(user_id=user_current_user.id, quiz_id=active_quiz.id).first()
+    if attempt:
+        return redirect(url_for('auth.show_result', status=attempt.status))
     language = session.get('language', 'fr')
     return render_template(f'explanation_{language}.html')
+
 @auth_bp.route('/quiz')
+@user_login_required
 def quiz():
     if not user_current_user.is_authenticated:
         return redirect(url_for('auth.login'))  # Redirect to login if not authenticated
@@ -175,6 +183,7 @@ def quiz():
         return "An error occurred while fetching the quiz", 500
 
 @auth_bp.route('/submit_quiz/<int:quiz_id>', methods=['POST'])
+@user_login_required
 def submit_quiz(quiz_id):
     if not user_current_user.is_authenticated:
         return redirect(url_for('auth.login'))  # Redirect if the user is not authenticated
@@ -307,6 +316,7 @@ def submit_quiz(quiz_id):
         return "An error occurred while processing your submission", 500
 
 @auth_bp.route('/result', methods=['GET'])
+@user_login_required
 def show_result():
     status = request.args.get('status', 'unknown')
     language = session.get("language", "fr")
