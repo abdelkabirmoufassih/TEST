@@ -1,6 +1,6 @@
 {% extends "admin/sidebar.html" %} {% block title %}All Quizzes{% endblock %} {%
 block content %}
-<div class="container mt-4">
+<div class="main container mt-4">
   <h1 class="mb-4">All Quizzes</h1>
 
   <!-- Create Quiz Button -->
@@ -44,6 +44,19 @@ block content %}
               </button>
             </form>
             {% else %}
+            <form
+              action="{{ url_for('admin.deactivate_quiz', quiz_id=quiz.id) }}"
+              method="post"
+              style="display: inline"
+            >
+              <button
+                type="submit"
+                class="btn btn-outline-danger btn-sm rounded-pill"
+                title="Deactivate"
+              >
+                <i class="bi bi-stop-circle"></i>
+              </button>
+            </form>
             <span class="badge bg-success text-white rounded-pill">Active</span>
             {% endif %}
           </td>
